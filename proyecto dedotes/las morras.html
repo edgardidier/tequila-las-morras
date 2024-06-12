@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Morras</title>
+    <style>
+        body {
+            background-image: url('Captura2.PNG');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Algerian;
+            font-size: 24px;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center; /* Para centrar el título */
+        }
+        h2, h3, h4, h5 {
+            margin: 10px 0;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
+        img {
+            width: 20%;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Las Morras</h1>
+    <h2>Instrucciones:</h2>
+    <h3>Ponle cero al tequila que no quieras comprar</h3>
+    <h4>Selecciona la cantidad que quieras y dale comprar</h4>
+    
+    <h5>Productos Disponibles:</h5>
+    <form id="formulario">
+        <label for="cantidadTequila1">Cantidad de Tequila Premium ($681):</label>
+        <input type="number" name="cantidadTequila1" id="cantidadTequila1" min="0" onchange="calcularTotal()"><br><br>
+        
+        <label for="cantidadTequila2">Cantidad de Tequila Regular ($500):</label>
+        <input type="number" name="cantidadTequila2" id="cantidadTequila2" min="0" onchange="calcularTotal()"><br><br>
+        
+        <label for="cantidadTequila3">Cantidad de Tequila Especial ($500):</label>
+        <input type="number" name="cantidadTequila3" id="cantidadTequila3" min="0" onchange="calcularTotal()"><br><br>
+        
+        <input type="button" value="Comprar" onclick="calcularTotal()">
+    </form>
+    
+    <div id="total">
+        Total a Pagar: $<span id="totalPagar">0</span>
+    </div>
+    
+    <footer>
+        <p>Las Morras es una licorería</p>
+    </footer>
+    
+    <div>
+        <h2>Servicio al Cliente</h2>
+        <img src="Captura3.PNG" alt="Servicio al Cliente">
+    </div>
+
+    <script>
+        function calcularTotal() {
+            var precioTequila1 = 681;
+            var precioTequila2 = 500;
+            var precioTequila3 = 500;
+
+            var cantidadTequila1 = parseInt(document.getElementById("cantidadTequila1").value);
+            var cantidadTequila2 = parseInt(document.getElementById("cantidadTequila2").value);
+            var cantidadTequila3 = parseInt(document.getElementById("cantidadTequila3").value);
+
+            var total = (precioTequila1 * cantidadTequila1) + (precioTequila2 * cantidadTequila2) + (precioTequila3 * cantidadTequila3);
+
+            document.getElementById("totalPagar").innerText = total;
+        }
+    </script>
+</body>
+</html>
+                                                  
